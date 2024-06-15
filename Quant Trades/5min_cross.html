@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Dashboard</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="css\5min_cross.css">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <!-- Bootstrap CSS for the navbar -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Proper Navbar structure -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#page-top">Quant Trades</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="alpaca_trend.html">TrendBot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gldn_cross.html">13/48Bot</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div style="margin-top: 80px;">
+        <header>
+            <h1>Trading Strategy Dashboard</h1>
+        </header>
+
+        <section id="account-info">
+            <h2>Account Information</h2>
+            <div id="equity">Equity: $0</div>
+            <div id="balance">Balance: $0</div>
+        </section>
+
+        <section id="trading-signals">
+            <h2>Trading Signals</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Last Price</th>
+                        <th>Signal</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Trading signals will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="strategy-controls">
+            <h2>Strategy Controls</h2>
+            <button type="button" onclick="startStrategy()">Start Strategy</button>
+            <button type="button" onclick="stopStrategy()">Stop Strategy</button>
+        </section>
+
+        <div id="tradingview-widget-container"></div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <!-- Include Bootstrap JS for navbar functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

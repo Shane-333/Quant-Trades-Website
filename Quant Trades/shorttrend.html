@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/gldncrss.css" rel="stylesheet">
+    <link href="css/chatbot.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- TradingView Widget BEGIN -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="light-mode">
+    <!-- Proper Navbar structure -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Quant Trades</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="alpaca_trend.html">13/48 Bot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shorttrend.html">9/21 Bot</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content container -->
+    <div class="container">
+        <h1 class="text-center mb-4">Trading Bot Dashboard</h1>
+
+        <div class="mb-3">
+            <button class="btn btn-success" onclick="startBot()">Start Bot</button>
+            <button class="btn btn-danger" onclick="stopBot()">Stop Bot</button>
+        </div>
+
+        <div class="mb-3">
+            <label for="symbolsInput">Enter Symbols (comma separated):</label>
+            <input type="text" id="symbolsInput" class="form-control" placeholder="AMC, PG, AAPL">
+            <button class="btn btn-primary mt-2" onclick="updateSymbols()">Update Symbols</button>
+        </div>
+
+        <div class="mb-3">
+            <h2>Bot Status: <span id="botStatus">Stopped</span></h2>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Latest Signals</div>
+            <ul class="list-group list-group-flush" id="signalsList">
+                <!-- Signals will be listed here -->
+            </ul>
+        </div>
+
+        <!-- Container for the TradingView Widget -->
+        <div class="mb-3" id="tradingview_chart">
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">Logs</div>
+            <div class="card-body">
+                <pre id="logs">Loading logs...</pre>
+            </div>
+        </div>
+
+        <!-- Chatbot container -->
+        <div id="chatbot-container" class="chatbot-container">
+            <div id="chatbot-header" class="chatbot-header">
+                <span>Chatbot</span>
+                <button id="chatbot-toggle" class="chatbot-toggle">-</button>
+            </div>
+            <div id="chatbot-body" class="chatbot-body">
+                <div id="chatbot-messages" class="chatbot-messages"></div>
+                <input id="chatbot-input" class="chatbot-input" type="text" placeholder="Ask a financial question..." />
+                <button id="chatbot-send" class="chatbot-send">Send</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

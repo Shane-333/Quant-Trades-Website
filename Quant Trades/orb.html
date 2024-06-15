@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORB Trading Bot</title>
+    <link rel="stylesheet" href="css/orb.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ORB Trading Bot Control Panel</h1>
+        <p>Status: <span id="botStatus">Stopped</span></p>
+        <button onclick="startBot()">Start Bot</button>
+        <button onclick="stopBot()">Stop Bot</button>
+        <hr>
+        <h2>Logs</h2>
+        <textarea id="log" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+        async function startBot() {
+    console.log("Attempting to start the bot");
+    try {
+        const response = await fetch('http://localhost:8000/start_orb', { method: 'POST' });
+        const data = await response.json();
+        document.getElementById('botStatus').innerText = 'Running';
+        document.getElementById('log').value += `${data.message}\n`;
+    } catch (error) {
+        console.error("Failed to start the bot:", error);
+        document.getElementById('log').value += 'Failed to start the bot.\n';
+    }
+}
+
+async function stopBot() {
+    console.log("Attempting to stop the bot");
+    try {
+        const response = await fetch('http://localhost:8000/stop_orb', { method: 'POST' });
+        const data = await response.json();
+        document.getElementById('botStatus').innerText = 'Stopped';
+        document.getElementById('log').value += `${data.message}\n`;
+    } catch (error) {
+        console.error("Failed to stop the bot:", error);
+        document.getElementById('log').value += 'Failed to stop the bot.\n';
+    }
+}
+
+    </script>
+</body>
+</html>

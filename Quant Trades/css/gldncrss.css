@@ -1,0 +1,64 @@
+/* General body styles */
+body {
+    padding: 0; /* Remove padding for full viewport usage */
+    margin: 0; /* Remove margin for full viewport usage */
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: Arial, sans-serif; /* Modern font */
+}
+
+/* Container for centered alignment */
+.container {
+    width: 100%; /* Full width of the screen */
+    height: auto; /* Adaptive height based on content */
+    min-height: 80vh; /* Minimum height */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the content */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 80px; /* Add enough space for the fixed navbar */
+    overflow: auto; /* Adds scroll to container if content overflows */
+}
+
+/* Heading styles */
+h1, h2 {
+    color: #343a40; /* Dark grey color */
+}
+
+/* Button styles */
+.btn {
+    width: 100%; /* Full width buttons */
+    margin-bottom: 10px; /* Space below buttons */
+}
+
+.btn-success {
+    background-color: #28a745; /* Bootstrap success green */
+    border-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Bootstrap danger red */
+    border-color: #dc3545;
+}
+
+/* Card styling */
+.card {
+    margin-top: 20px; /* Space above the card */
+}
+
+.card-header {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: #ffffff; /* White text */
+    font-size: 1.25em; /* Slightly larger text */
+}
+
+.list-group-item {
+    border: none; /* No borders for a cleaner look */
+}
+
+/* Style for the TradingView Widget container to ensure it utilizes available space */
+#tradingview_chart {
+    height: 500px; /* Fixed height */
+    width: 100%; /* Full width of the container */
+}
+
+

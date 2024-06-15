@@ -1,0 +1,92 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Ensures proper stacking context without using high z-index values */
+}
+
+header, section {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f8f8; /* Consistent background for all sections */
+}
+
+header {
+    background-color: #f0f0f0; /* Slightly different background for header for contrast */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px; /* Space below each table */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 10px; /* Space between buttons */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative; /* Ensures buttons are on top of other elements */
+    z-index: 2; /* Make sure buttons are above the TradingView container */
+}
+
+button:hover {
+    background-color: #367C36; /* Darker on hover */
+    opacity: 0.9; /* Slightly transparent on hover for effect */
+}
+
+#tradingview-widget-container {
+    width: 100%;      /* Full width of its container */
+    height: 15px;    /* Fixed height, adjust with vh for responsiveness */
+    margin-top: 0; /* No space above the chart */
+    position: relative; /* Changed from absolute to relative */
+    bottom: auto;    /* Remove positioning at the bottom */
+    left: 0;
+    z-index: 1; /* Lower than buttons to prevent overlap */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th, td {
+        text-align: right; /* Right-align text for readability */
+        padding: 10px; /* Larger padding for easier touch */
+    }
+
+    header, section {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px 16px; /* Smaller padding on smaller screens */
+        margin-top: 5px; /* Less margin on top */
+    }
+
+    #tradingview-widget-container {
+        height: 15px; /* Smaller height on smaller screens */
+        margin-top: 0; /* No space to maintain consistency across devices */
+    }
+}
